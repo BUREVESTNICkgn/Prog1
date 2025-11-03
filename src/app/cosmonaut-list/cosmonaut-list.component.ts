@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Cosmonaut, CosmonautService } from '../cosmonaut.service';
+import { Cosmonaut, CosmonautService } from '../cosmonaut.service';  // ← Импорт интерфейса
 
 @Component({
   selector: 'app-cosmonaut-list',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';  // ← ИСПРАВЛЕНИЕ: Импорт Router
 import { Cosmonaut, CosmonautService } from '../cosmonaut.service';
 
 @Component({
@@ -12,11 +12,16 @@ export class CosmonautDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,  // ← Для goBack()
     private cosmonautService: CosmonautService
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.cosmonaut = this.cosmonautService.getCosmonaut(id);
+  }
+
+  goBack(): void {
+    this.router.navigate(['']);  // ← Навигация назад
   }
 }
