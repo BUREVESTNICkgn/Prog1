@@ -1,0 +1,73 @@
+.detail-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.back-btn {
+  background: #003366;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background: #0055aa;
+}
+
+.detail-card {
+  display: flex;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.detail-card img {
+  width: 350px;
+  height: auto;
+  object-fit: cover;
+}
+
+.info {
+  padding: 30px;
+  flex: 1;
+}
+
+.info h2 {
+  margin: 0 0 15px;
+  color: #1a3d7c;
+  font-size: 2em;
+}
+
+.info p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.full-bio {
+  margin-top: 20px;
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #333;
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+  color: #666;
+}
+
+.not-found button {
+  background: #003366;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}

@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Выдающиеся космонавты России</h1>
+
+  <div class="search">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Поиск по имени..."
+      class="search-input"
+    />
+  </div>
+
+  <div class="gallery">
+    <div
+      *ngFor="let cosmonaut of filteredCosmonauts"
+      class="card"
+      [routerLink]="['/detail', cosmonaut.id]"
+    >
+      <img [src]="'assets/images/' + cosmonaut.photo" [alt]="cosmonaut.name" />
+      <h3>{{ cosmonaut.name }}</h3>
+      <p><strong>Родился:</strong> {{ cosmonaut.birth }}</p>
+      <p class="brief">{{ cosmonaut.brief }}</p>
+    </div>
+  </div>
+</div>
