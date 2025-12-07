@@ -43,6 +43,16 @@ npm run build
 
 Artifacts are written to `dist/`.
 
+### Server-side rendering (SSR) troubleshooting
+This project currently targets client-side rendering only. If you accidentally run an SSR
+command (for example, `ng run Prog1:serve-ssr`) you may see missing module errors such as
+`Cannot find module '@angular/ssr'` or type resolution errors for Node/Express.
+
+To proceed with client-only builds, stick to `npm start` and `npm run build` commands above.
+If you need SSR support, add the missing dependencies in your own environment and update the
+Angular configuration accordingly (packages include `@angular/ssr`, `express`,
+`@types/express`, and `@types/node`).
+
 ## Running unit tests
 Execute unit tests with Karma:
 
