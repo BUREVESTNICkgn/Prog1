@@ -1,25 +1,50 @@
 <div class="container">
-  <h1>Выдающиеся космонавты России</h1>
-
-  <div class="search">
-    <input
-      type="text"
-      [(ngModel)]="searchTerm"
-      placeholder="Поиск по имени..."
-      class="search-input"
-    />
+  <div class="heading">
+    <div>
+      <p class="eyebrow">Фотогалерея</p>
+      <h1>Выдающиеся космонавты России</h1>
+      <p class="lead">
+        Интерактивный каталог позволяет быстро найти героя по фамилии,
+        просмотреть краткие сведения и открыть подробную биографию.
+      </p>
+    </div>
+    <div class="search" role="search">
+      <label class="search-label" for="search">Поиск по фамилии</label>
+      <div class="search-control">
+        <input
+          id="search"
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Начните вводить имя или фамилию"
+          class="search-input"
+        />
+        <span class="counter">{{ filteredCosmonauts.length }} / {{ cosmonauts.length }}</span>
+      </div>
+    </div>
   </div>
 
-  <div class="gallery">
-    <div
+  <div class="gallery" *ngIf="filteredCosmonauts.length; else emptyState">
+    <article
       *ngFor="let cosmonaut of filteredCosmonauts"
       class="card"
       [routerLink]="['/detail', cosmonaut.id]"
     >
-      <img [src]="'assets/images/' + cosmonaut.photo" [alt]="cosmonaut.name" />
-      <h3>{{ cosmonaut.name }}</h3>
-      <p><strong>Родился:</strong> {{ cosmonaut.birth }}</p>
-      <p class="brief">{{ cosmonaut.brief }}</p>
-    </div>
+      <div class="photo">
+        <img [src]="'assets/images/' + cosmonaut.photo" [alt]="cosmonaut.name" />
+      </div>
+      <div class="card-body">
+        <h3>{{ cosmonaut.name }}</h3>
+        <p class="meta">Дата рождения: {{ cosmonaut.birth }}</p>
+        <p class="brief">{{ cosmonaut.brief }}</p>
+        <span class="more">Полная биография</span>
+      </div>
+    </article>
   </div>
+
+  <ng-template #emptyState>
+    <div class="empty">
+      <p>Не удалось найти космонавта по запросу «{{ searchTerm }}».</p>
+      <p class="hint">Попробуйте ввести другую фамилию или очистите поле поиска.</p>
+    </div>
+  </ng-template>
 </div>
