@@ -1,73 +1,103 @@
 .detail-container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 0 20px 32px;
+  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
 }
 
 .back-btn {
-  background: #003366;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  background: transparent;
+  color: #1b263b;
+  border: 1px solid #c4d1e1;
+  padding: 10px 16px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
 .back-btn:hover {
-  background: #0055aa;
+  background: #e8f0ff;
+  border-color: #9ab2e2;
 }
 
 .detail-card {
-  display: flex;
-  background: white;
-  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background: #ffffff;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px rgba(13, 27, 42, 0.12);
+  margin-top: 18px;
 }
 
-.detail-card img {
-  width: 350px;
-  height: auto;
+.photo {
+  background: linear-gradient(135deg, #d9e2ec, #f7f9fc);
+  height: 100%;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .info {
-  padding: 30px;
-  flex: 1;
+  padding: 28px 32px;
+  display: grid;
+  gap: 10px;
+  color: #0d1b2a;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #3d5a80;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 0;
 }
 
 .info h2 {
-  margin: 0 0 15px;
-  color: #1a3d7c;
-  font-size: 2em;
+  margin: 0;
+  font-size: 28px;
+  color: #0b1c3d;
 }
 
-.info p {
-  margin: 10px 0;
-  line-height: 1.6;
+.meta {
+  margin: 0;
+  color: #52637a;
+  line-height: 1.5;
 }
 
 .full-bio {
-  margin-top: 20px;
-  font-size: 1.1em;
-  line-height: 1.8;
-  color: #333;
+  margin-top: 8px;
+  line-height: 1.7;
+  color: #1b263b;
 }
 
 .not-found {
   text-align: center;
-  padding: 50px;
-  color: #666;
+  padding: 60px 20px;
+  color: #52637a;
 }
 
 .not-found button {
+  margin-top: 12px;
   background: #003366;
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 20px;
+}
+
+@media (max-width: 820px) {
+  .detail-card {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    height: 280px;
+  }
 }

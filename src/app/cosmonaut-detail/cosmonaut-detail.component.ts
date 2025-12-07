@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';  // ← ИСПРАВЛЕНИЕ: Импорт Router
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Cosmonaut, CosmonautService } from '../cosmonaut.service';
 
 @Component({
   selector: 'app-cosmonaut-detail',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './cosmonaut-detail.component.html',
   styleUrls: ['./cosmonaut-detail.component.css']
 })
@@ -12,7 +15,7 @@ export class CosmonautDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,  // ← Для goBack()
+    private router: Router,
     private cosmonautService: CosmonautService
   ) {}
 
@@ -22,6 +25,6 @@ export class CosmonautDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['']);  // ← Навигация назад
+    this.router.navigate(['/']);
   }
 }

@@ -1,21 +1,23 @@
-<div class="detail-container" *ngIf="cosmonaut">
-  <button class="back-btn" (click)="goBack()">Назад</button>
+<div class="detail-container" *ngIf="cosmonaut; else notFound">
+  <button class="back-btn" type="button" (click)="goBack()">← Назад к списку</button>
 
-  <div class="detail-card">
-    <img [src]="'assets/images/' + cosmonaut.photo" [alt]="cosmonaut.name" />
-
+  <article class="detail-card">
+    <div class="photo">
+      <img [src]="'assets/images/' + cosmonaut.photo" [alt]="cosmonaut.name" />
+    </div>
     <div class="info">
+      <p class="eyebrow">Космонавт</p>
       <h2>{{ cosmonaut.name }}</h2>
-      <p><strong>Дата рождения:</strong> {{ cosmonaut.birth }}</p>
-      <p><strong>Ключевые достижения:</strong> {{ cosmonaut.brief }}</p>
-      <hr />
-      <h3>Подробная биография</h3>
+      <p class="meta"><strong>Дата рождения:</strong> {{ cosmonaut.birth }}</p>
+      <p class="meta"><strong>Ключевые достижения:</strong> {{ cosmonaut.brief }}</p>
       <p class="full-bio">{{ cosmonaut.full }}</p>
     </div>
-  </div>
+  </article>
 </div>
 
-<div *ngIf="!cosmonaut" class="not-found">
-  <p>Космонавт не найден.</p>
-  <button (click)="goBack()">Назад</button>
-</div>
+<ng-template #notFound>
+  <div class="not-found">
+    <p>Космонавт не найден.</p>
+    <button type="button" (click)="goBack()">Вернуться</button>
+  </div>
+</ng-template>
